@@ -18,11 +18,9 @@ public class CategoryService {
 	public List<Category> findAll() {
 		return repository.findAll();
 	}
-	
-	 public Category findById(Long id) {
-		 Optional<Category> obj = repository.findById(id);
-		 return obj.get();
-	 }
 
-	;
+	public Category findById(Long id) {
+		Optional<Category> obj = repository.findById(id);
+		return obj.get();
+	}
 }

@@ -16,7 +16,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "tb_user")
 public class User implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -24,23 +23,22 @@ public class User implements Serializable {
 	private Long id;
 	private String name;
 	private String email;
-	private String fone;
+	private String phone;
 	private String password;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders = new ArrayList<>();
-
+	
 	public User() {
-
 	}
 
-	public User(Long id, String name, String email, String fone, String password) {
+	public User(Long id, String name, String email, String phone, String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
-		this.fone = fone;
+		this.phone = phone;
 		this.password = password;
 	}
 
@@ -68,12 +66,12 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public String getFone() {
-		return fone;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setFone(String fone) {
-		this.fone = fone;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getPassword() {
@@ -83,11 +81,11 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public List<Order> getOrders() {
 		return orders;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -112,7 +110,4 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
-
-	
-
 }
